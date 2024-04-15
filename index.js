@@ -132,3 +132,79 @@ function formatTimestamp(timestamp) {
   const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
   return formattedDate;
 }
+
+
+
+
+const uploadForm = document.querySelector('form');
+
+uploadForm.addEventListener('submit', uploadFiles);
+
+function uploadFiles(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Access uploaded files
+    const files = uploadForm.querySelectorAll('input[type="file"]');
+
+    // Check if any files are selected
+    if (!files.length) {
+        alert('Please select files to upload!');
+        return;
+    }
+
+    // Create a new FormData object
+    const formData = new FormData();
+
+    // Append each selected file to the FormData
+    for (const file of files) {
+        formData.append(file.name, file.files[0]); // Use file.files[0] for single selection
+    }
+
+    // Send the FormData object to your server using Fetch API
+    fetch('YOUR_UPLOAD_ENDPOINT', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json()) // Parse response as JSON
+    .then(data => {
+        // Display the uploaded data (extracted from the response)
+        console.log('Upload successful:', data);
+        // Update your UI with the processed data from the server (replace with your logic)
+
+        const a = document.getElementById( 'uploadResult' )
+        a.innerHTML`
+       
+<div class="card">
+  <div class="card-header">
+    Upload Result
+  </div>
+  <div class="card-body">
+    <pre id="uploadResult"></pre>
+    <div>
+
+      <div>${data.gotten_data.x1_vehicles}</div>
+      <div>${data.gotten_data.x2_vehicles}</div>
+      <div>${data.gotten_data.y1_vehicles}</div>
+      <div>${data.gotten_data.y2_vehicles}</div>
+      <div>${data.gotten_data.x_green_time}</div>
+      <div>${data.gotten_data.y_green_time}</div>
+      <div>${formatTimestamp(data.gotten_data.created_at)}</div>
+      <div>${formatTimestamp(data.gotten_data.updated_at)}</div>
+
+
+  </div>
+
+
+</div>
+
+
+
+        `
+        .textContent = JSON.stringify(data, null, 2);
+    })
+    .catch(error => {
+        console.error('Upload failed:', error);
+        // Handle upload errors (display error message to the user)
+        alert('An error occurred while uploading files!');
+    });
+}
