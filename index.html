@@ -1,0 +1,237 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+    <title>traffic light</title>
+    <style>
+      .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%; /* Makes the element round */
+
+        margin-top: 5px;
+      }
+
+ 
+    </style>
+  </head>
+  <body>
+  <div class="text-black" style="color: black; font-size: 60px; text-align: center; text-transform: capitalize; font-weight: bold;"> Smart Traffic light control system</div>
+
+    <div class="flex m-20" style="align-items: center; justify-content: center;" >
+
+      <div class="flex flex-col mx-3 w-64 p-1 items-center bg-gray-700">
+        <div style="color:white; font-weight: 600;">lANE 1</div>
+        <div class="countdown" id="lane1Countdown" style="color: white; font-weight: 600; font-size: medium;"></div> 
+        <div class="flex items-center">
+          <div class="circle red" id="lane1Red"></div>
+        </div>
+        <br />
+        <div class="flex items-center">
+          <div class="circle yellow" id="lane1Yellow"></div>
+        </div>
+        <br />
+        <div class="flex items-center">
+          <div class="circle green" id="lane1Green"></div>
+        </div>
+      </div>
+
+      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700">
+         <div style="color:white; font-weight: 600;">lANE 2</div> <div class="countdown" id="lane2Countdown" style="color: white; font-weight: 600; font-size: medium;"></div> 
+        <div class="flex items-center">
+          <div class="circle red" id="lane2Red"></div>
+        </div>
+        <br />
+        <div class="flex items-center">
+          <div class="circle yellow" id="lane2Yellow"></div>
+        </div>
+        <br />
+        <div class="flex items-center">
+          <div class="circle green" id="lane2Green"></div>
+        </div>
+      </div>
+
+      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700">
+         <div style="color:white; font-weight: 600;">lANE 3</div>
+          <div class="countdown" id="lane3Countdown" style="color: white; font-weight: 600; font-size: medium;"></div> 
+        <div class="flex items-center">
+          <div class="circle red" id="lane3Red"></div>
+        </div>
+        <br />
+        <div class="flex items-center">
+          <div class="circle yellow" id="lane3Yellow"></div>
+        </div>
+        <br />
+        <div class="flex items-center">
+          <div class="circle green" id="lane3Green"></div>
+        </div>
+      </div>
+
+      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700">
+         <div style="color:white; font-weight: 600;">lANE 4</div>
+          <div class="countdown" id="lane4Countdown" style="color: white; font-weight: 600; font-size: medium;"></div> 
+        <div class="flex items-center">
+          <div class="circle red" id="lane4Red"></div>
+        </div>
+        <br />
+        <div class="flex items-center">
+          <div class="circle yellow" id="lane4Yellow"></div>
+        </div>
+        <br />
+        <div class="flex items-center">
+          <div class="circle green" id="lane4Green"></div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <hr />
+    <br />
+
+    <table id="table" class="display" style="width: 100%">
+      <thead>
+        <tr>
+          <th>X1 vehicles</th>
+          <th>X2 vehicles</th>
+          <th>Y1 vehicles</th>
+          <th>Y2 vehicles</th>
+          <th>X green time</th>
+          <th>Y green time</th>
+          <th>Created_at</th>
+          <th>Updated_at</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data X1 vehicles</td>
+          <td>X2 vehicles</td>
+          <td>data Y1 vehicles</td>
+          <td>data Y2 vehicles</td>
+          <td>data X green time</td>
+          <td>data Y green time</td>
+          <td>data Created_at</td>
+          <td>data Updated_at</td>
+        </tr>
+        <!-- More rows go here -->
+      </tbody>
+    </table>
+
+
+
+
+
+
+    <br>
+    <form method="post" class="max-w-lg mx-auto " style="margin-top: 50px;" >
+      <h2>TEST DATA</h2>
+      <br >
+      <hr />
+      <br />
+      <label
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        for="user_avatar"
+        >Upload LINE1</label
+      >
+      <input
+        name="x1"
+        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+        aria-describedby="user_avatar_help"
+        id="user_avatar"
+        type="file"
+      />
+      <div
+        class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+        id="user_avatar_help"
+      >
+        A profile
+      </div>
+
+      <label
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        for="user_avatar"
+        >Upload LINE2</label
+      >
+      <input
+        name="x2"
+        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+        aria-describedby="user_avatar_help"
+        id="user_avatar"
+        type="file"
+      />
+      <div
+        class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+        id="user_avatar_help"
+      >
+        A profile
+      </div>
+
+      <label
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        for="user_avatar"
+        >Upload LINE3</label
+      >
+      <input
+        name="y1"
+        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+        aria-describedby="user_avatar_help"
+        id="user_avatar"
+        type="file"
+      />
+      <div
+        class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+        id="user_avatar_help"
+      >
+        A profile
+      </div>
+
+      <label
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        for="user_avatar"
+        >Upload LINE4</label
+      >
+      <input
+        name="y2"
+        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+        aria-describedby="user_avatar_help"
+        id="user_avatar"
+        type="file"
+      />
+      <div
+        class="mt-1 text-sm text-gray-500 dark:text-gray-300"
+        id="user_avatar_help"
+      >
+        A profile
+      </div>
+    </form>
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"
+    ></script>
+
+    <!-- Your custom script to initialize DataTable -->
+    <script>
+      $(document).ready(function () {
+        $("#example").DataTable({ ordering: false });
+      });
+    </script>
+
+<script  src="./index.js"></script>
+   
+
+  </body>
+</html>
