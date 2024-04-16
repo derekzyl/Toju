@@ -8,6 +8,11 @@
       type="text/css"
       href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
     />
+    <link
+    rel="stylesheet",
+    type="text/css"
+    href="index.css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
@@ -27,9 +32,9 @@
   <body>
   <div class="text-black" style="color: black; font-size: 60px; text-align: center; text-transform: capitalize; font-weight: bold;"> Smart Traffic light control system</div>
 
-    <div class="flex m-20" style="align-items: center; justify-content: center;" >
+    <div class="flex m-10 pt-4 bg-gray-200" style="align-items: center; justify-content: center;" >
 
-      <div class="flex flex-col mx-3 w-64 p-1 items-center bg-gray-700">
+      <div class="flex flex-col mx-3 w-64 p-1 items-center bg-gray-700   shadow-[-5px_5px_5px_5px_hsl(30,0%,20%)]  my-6", >
         <div style="color:white; font-weight: 600;">lANE 1</div>
         <div class="countdown" id="lane1Countdown" style="color: white; font-weight: 600; font-size: medium;"></div> 
         <div class="flex items-center">
@@ -45,7 +50,7 @@
         </div>
       </div>
 
-      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700">
+      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700  shadow-[-5px_5px_5px_5px_hsl(30,0%,20%)]">
          <div style="color:white; font-weight: 600;">lANE 2</div> <div class="countdown" id="lane2Countdown" style="color: white; font-weight: 600; font-size: medium;"></div> 
         <div class="flex items-center">
           <div class="circle red" id="lane2Red"></div>
@@ -60,7 +65,7 @@
         </div>
       </div>
 
-      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700">
+      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700 shadow-[-5px_5px_5px_5px_hsl(30,0%,20%)]">
          <div style="color:white; font-weight: 600;">lANE 3</div>
           <div class="countdown" id="lane3Countdown" style="color: white; font-weight: 600; font-size: medium;"></div> 
         <div class="flex items-center">
@@ -76,7 +81,7 @@
         </div>
       </div>
 
-      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700">
+      <div class="flex mx-3 flex-col w-64 p-1 items-center bg-gray-700 shadow-[-5px_5px_5px_5px_hsl(30,0%,20%)]">
          <div style="color:white; font-weight: 600;">lANE 4</div>
           <div class="countdown" id="lane4Countdown" style="color: white; font-weight: 600; font-size: medium;"></div> 
         <div class="flex items-center">
@@ -112,16 +117,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>data X1 vehicles</td>
-          <td>X2 vehicles</td>
-          <td>data Y1 vehicles</td>
-          <td>data Y2 vehicles</td>
-          <td>data X green time</td>
-          <td>data Y green time</td>
-          <td>data Created_at</td>
-          <td>data Updated_at</td>
-        </tr>
+
         <!-- More rows go here -->
       </tbody>
 

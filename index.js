@@ -6,20 +6,67 @@ const table = document.getElementById('example');
      var greenElement = document.getElementById( laneId + 'Green' );
      
 
-    countdownElement.innerText = time;
+
+  
+  const tensDigit = Math.floor(time / 10);
+  const onesDigit = time % 10;
+   
+   const time1 = document.createElement( 'div' )
+   const time2 = document.createElement( 'div' )
+time1.classList.add('digit')
+   time2.classList.add( 'digit' )
+   time1.innerText = tensDigit;
+
+    time2.innerText = onesDigit;
+
+    time1.innerText = tensDigit;
+   time2.innerText = onesDigit;
+   
+
+
+    countdownElement.innerHTML = '';
+    countdownElement.appendChild(time1);
+   countdownElement.appendChild( time2 );
+
+
+
+   
+
+   
+    
 
     redElement.style.background = 'black';
     yellowElement.style.background = 'black';
-    greenElement.style.background = 'black';
+   greenElement.style.background = 'black';
+
+  redElement.style.boxShadow= "none"
+  yellowElement.style.boxShadow= "none"
+  greenElement.style.boxShadow= "none"
+   
+
+   
+
 
     if (time > 5) {
-      greenElement.style.background = 'green';
+    
+          greenElement.style.borderRadius= "50%"
+ greenElement.style.background= "linear-gradient(145deg, #12ff00, #0fe600)";
+ greenElement.style.boxShadow= " 5px 5px 30px #076600,-5px -5px 30px #1bff00"
     } else if (time <= 5 && time > 0) {
-      yellowElement.style.background = 'yellow';
+    
+           yellowElement.style.borderRadius= "50%"
+  yellowElement.style.background= "linear-gradient(145deg, #ffec00, #e6c700)";
+  yellowElement.style.boxShadow= "5px 5px 30px #665800,  -5px -5px 30px #ffff00"
     } else {
-      redElement.style.background = 'red';
+
+           redElement.style.borderRadius= "50%"
+  redElement.style.background= "linear-gradient(145deg, #ff0000, #e60000)";
+  redElement.style.boxShadow= " 5px 5px 30px #660000,  -5px -5px 30px #ff0000"
     }
   }
+
+
+  
       function updateTrafficLights(data) {
       console.log("was called")
       // Update lane 1 and lane 3
@@ -53,7 +100,7 @@ const table = document.getElementById('example');
    
       
       
-      if (seconds < 0) {
+      if (seconds === 0) {
           fetchData()
         clearInterval(timer);
       }
@@ -61,10 +108,10 @@ const table = document.getElementById('example');
   }
 
 
-  trafficCounter({
-    'x_green_time': 90,
-    'y_green_time': 30
-  });
+  // trafficCounter({
+  //   'x_green_time': 90,
+  //   'y_green_time': 30
+  // });
 
 
 
@@ -208,3 +255,71 @@ function uploadFiles(event) {
         alert('An error occurred while uploading files!');
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function to create a flip digit element
+function createFlipDigit() {
+  const flipDigit = document.createElement('div');
+  flipDigit.classList.add('flip-digit');
+  flipDigit.innerHTML = `
+    <div class="flip-digit-upper"></div>
+    <div class="flip-digit-lower"></div>
+  `;
+  return flipDigit;
+}
+
+// Function to create and initialize flip clock elements
+function createFlipClock() {
+  const flipClock = document.createElement('div');
+  flipClock.classList.add('flip-clock');
+  const minutesDigit1 = createFlipDigit();
+  const minutesDigit2 = createFlipDigit();
+  const secondsDigit1 = createFlipDigit();
+  const secondsDigit2 = createFlipDigit();
+  flipClock.append(minutesDigit1, minutesDigit2, document.createTextNode(':'), secondsDigit1, secondsDigit2);
+  return {
+    flipClock,
+    minutesDigit1,
+    minutesDigit2,
+    secondsDigit1,
+    secondsDigit2
+  };
+}
+
+// Function to update the flip clock with new digits
+function updateFlipClock(flipClock, minutes, seconds) {
+  flipClock.minutesDigit1.innerText = Math.floor(minutes / 10);
+  flipClock.minutesDigit2.innerText = minutes % 10;
+  flipClock.secondsDigit1.innerText = Math.floor(seconds / 10);
+  flipClock.secondsDigit2.innerText = seconds % 10;
+}
+
+

@@ -1,0 +1,71 @@
+.countdown {
+    display: flex;
+    /* Allow digit elements to align horizontally */
+    justify-content: space-between;
+    /* Space digits evenly */
+    margin: 4px
+}
+
+.digit {
+    width: 30px;
+    /* Adjust width as needed */
+    height: 30px;
+    /* Adjust height as needed */
+    background-color: black;
+    color: white;
+    /* Text color */
+    font-size: 20px;
+    /* Text size */
+    text-align: center;
+    /* Center text within digit */
+    border: 1px solid white;
+    /* Optional border */
+    overflow: hidden;
+    /* Prevent text overflow */
+    perspective: 1000px;
+    /* Set perspective for 3D effect */
+}
+
+
+table#table {
+    width: 100%;
+    /* Maintain full width */
+    border-collapse: collapse;
+    /* Combine cell borders */
+    margin: 20px auto;
+    /* Add some margin for better placement */
+}
+
+/* Table header (thead) styling */
+thead th {
+    background-color: #f5f5f5;
+    /* Light gray background */
+    color: #333;
+    /* Dark gray text */
+    padding: 10px 15px;
+    /* Add some padding inside headers */
+    border: 1px solid #ddd;
+    /* Light gray border for headers */
+    font-weight: bold;
+    /* Make headers stand out */
+}
+
+/* Table body (tbody) styling */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+    /* Light gray border for rows */
+    cursor: pointer;
+    /* Enable hover effect (optional) */
+}
+
+/* Table body (tbody) - Even rows (optional) */
+tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+    /* Very light gray background for even rows */
+}
+
+/* Table body (tbody) - Hover effect (optional) */
+tbody tr:hover {
+    background-color: #eee;
+    /* Lighten background on hover */
+}
