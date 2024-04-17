@@ -208,7 +208,7 @@ function uploadFiles(event) {
     }
 
     // Send the FormData object to your server using Fetch API
-    fetch('YOUR_UPLOAD_ENDPOINT', {
+    fetch('https://computer-vision-traffic-control.onrender.com/process/', {
         method: 'POST',
         body: formData
     })
